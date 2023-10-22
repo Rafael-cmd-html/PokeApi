@@ -17,6 +17,9 @@ class PokemonListing {
   final int id;
   final String name;
 
+  String get imageUrl =>
+      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$id.png';
+
   PokemonListing({required this.id, required this.name});
 
   factory PokemonListing.fromJson(Map<String, dynamic> json) {
@@ -39,7 +42,7 @@ class PokemonPageResponse {
   // Recibirá como parametros String y Dynamic, permitiendo que el segundo valor pueda ser nulo o String
   factory PokemonPageResponse.fromJson(Map<String, dynamic> json) {
     final canLoadNext = json['next'] != null;
-    final pokemonListings = (json['result'] as List)
+    final pokemonListings = (json['results'] as List)
         .map((listingJson) => PokemonListing.fromJson(listingJson))
         .toList();
     return PokemonPageResponse(

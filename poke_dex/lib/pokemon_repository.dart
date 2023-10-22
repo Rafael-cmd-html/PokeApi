@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:http/http.dart';
+import 'package:http/http.dart ' as http;
 import 'package:poke_dex/pokemon_page_respond.dart';
 
 class PokemonRepository {
   final baseUrl = 'pokeapi.co';
-  final client = HttpClient();
+  final client = http.Client();
 
   Future<PokemonPageResponse> getPokemonPage(int pageIndex) async {
     // pokemon?limit=200&offset=400
@@ -24,5 +24,3 @@ class PokemonRepository {
     return PokemonPageResponse.fromJson(json);
   }
 }
-
-mixin body {}
