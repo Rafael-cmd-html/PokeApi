@@ -5,7 +5,9 @@ import 'package:poke_dex/pokemon_repository.dart';
 
 class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
   final _pokemonRepository = PokemonRepository();
-  PokemonBloc() : super(PokemonInitial());
+  PokemonBloc() : super(PokemonInitial()) {
+    on<PokemonPageRequest>((event, emit) {});
+  }
   Stream<PokemonState> mapEventToState(PokemonEvent event) async* {
     if (event is PokemonPageRequest) {
       yield PokemonLoadInProgress();
