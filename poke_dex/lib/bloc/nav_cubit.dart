@@ -1,13 +1,18 @@
-// import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:poke_dex/bloc/pokemon_details_cubit.dart';
 
-// class NavCubit extends Cubit<int> {
-//   NavCubit() : super(null);
+class NavCubit extends Cubit<int> {
+  PokemonDetailsCubit pokemonDetailsCubit;
 
-//   void showPokemonDetails(int pokemonId) {
-//     emit(pokemonId);
-//   }
+  NavCubit({required this.pokemonDetailsCubit}) : super(null!);
 
-//   void popToPokedex() {
-//     emit(0);
-//   }
-// }
+  void showPokemonDetails(int pokemonId) {
+    print(pokemonId);
+    pokemonDetailsCubit.getPokemonDetails(pokemonId);
+    emit(pokemonId);
+  }
+
+  void popToPokedex() {
+    emit(null!);
+  }
+}

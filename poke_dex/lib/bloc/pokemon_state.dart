@@ -1,4 +1,4 @@
-import 'package:poke_dex/pokemon_page_respond.dart';
+import 'package:poke_dex/data/pokemon_page_respond.dart';
 
 abstract class PokemonState {}
 
