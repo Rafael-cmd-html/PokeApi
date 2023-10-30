@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:http/http.dart ' as http;
+import 'package:http/http.dart' as http;
 import 'package:poke_dex/data/pokemon_info_response.dart';
 import 'package:poke_dex/data/pokemon_page_respond.dart';
 import 'package:poke_dex/data/pokemon_species_info_response.dart';
@@ -12,8 +12,8 @@ class PokemonRepository {
     // pokemon?limit=200&offset=400
 
     final queryParameters = {
-      'limit': '200',
-      'offset': (pageIndex * 200).toString()
+      'limit': '150',
+      'offset': (pageIndex * 150).toString()
     };
 
     final uri = Uri.https(baseUrl, 'api/v2/pokemon', queryParameters);
