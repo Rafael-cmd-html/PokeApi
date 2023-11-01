@@ -13,7 +13,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   final pokemonDetailsCubit = PokemonCubit();
-  final navigator = AppNavigator();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
                   NavCubit(pokemonDetailsCubit: pokemonDetailsCubit)),
           BlocProvider(create: (context) => pokemonDetailsCubit)
         ],
-        child: navigator,
+        child: AppNavigator(),
       ),
     );
   }

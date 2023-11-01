@@ -7,7 +7,11 @@ import 'package:poke_dex/data/pokemon_repository.dart';
 
 class PokedexView extends StatelessWidget {
   int currentPage = 0; // Variable para rastrear la pestaña actual
-  var _pokemonRepository = PokemonRepository();
+  late var pokemonRepository = PokemonRepository();
+  int getCurrentPage() {
+    return this.currentPage;
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -30,9 +34,8 @@ class PokedexView extends StatelessWidget {
               Tab(text: 'Gen9'),
             ],
             onTap: (index) {
-              currentPage = index;
-              _pokemonRepository.getPokemonPage(
-                  currentPage); // Actualiza la variable currentPage cuando se cambia de pestaña
+              currentPage =
+                  index; // Actualiza la variable currentPage cuando se cambia de pestaña
             },
           ),
         ),

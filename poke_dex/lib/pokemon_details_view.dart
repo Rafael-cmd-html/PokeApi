@@ -119,6 +119,9 @@ class PokemonDetailsView extends StatelessWidget {
       case 'fairy':
         color = Color(0xFFEEB0FA);
         break;
+      case 'electric':
+        color = Color.fromRGBO(223, 201, 42, 1);
+        break;
       default:
         color = Colors.black;
         break;
