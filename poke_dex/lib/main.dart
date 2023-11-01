@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: MultiBlocProvider(
-        child: navigator,
         providers: [
           BlocProvider(
               create: (context) =>
@@ -28,6 +27,7 @@ class MyApp extends StatelessWidget {
                   NavCubit(pokemonDetailsCubit: pokemonDetailsCubit)),
           BlocProvider(create: (context) => pokemonDetailsCubit)
         ],
+        child: navigator,
       ),
     );
   }
