@@ -7,14 +7,49 @@ import 'package:poke_dex/data/pokemon_species_info_response.dart';
 class PokemonRepository {
   final baseUrl = 'pokeapi.co';
   final client = http.Client();
+  final generations = [
+    {
+      "offset": '0',
+      "limit": '151',
+    },
+    {
+      "offset": '151',
+      "limit": '100',
+    },
+    {
+      "offset": '251',
+      "limit": '135',
+    },
+    {
+      "offset": '386',
+      "limit": '107',
+    },
+    {
+      "offset": '494',
+      "limit": '156',
+    },
+    {
+      "offset": '649',
+      "limit": '72',
+    },
+    {
+      "offset": '723',
+      "limit": '88',
+    },
+    {
+      "offset": '809',
+      "limit": '96',
+    },
+    {
+      "offset": '905',
+      "limit": '105',
+    },
+  ];
 
   Future<PokemonPageResponse> getPokemonPage(int pageIndex) async {
     // pokemon?limit=200&offset=400
 
-    final queryParameters = {
-      'limit': '150',
-      'offset': (pageIndex * 150).toString()
-    };
+    final queryParameters = generations[pageIndex];
 
     final uri = Uri.https(baseUrl, 'api/v2/pokemon', queryParameters);
 
@@ -32,7 +67,6 @@ class PokemonRepository {
       final json = jsonDecode(response.body);
       return PokemonInfoResponse.fromJson(json);
     } catch (e) {
-      print(e);
       rethrow;
     }
   }
@@ -46,7 +80,6 @@ class PokemonRepository {
       final json = jsonDecode(response.body);
       return PokemonSpeciesInfoResponse.fromJson(json);
     } catch (e) {
-      print(e);
       rethrow;
     }
   }

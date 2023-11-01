@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:poke_dex/bloc/pokemon_details_cubit.dart';
 
 class NavCubit extends Cubit<int?> {
-  PokemonDetailsCubit pokemonDetailsCubit;
+  PokemonCubit pokemonDetailsCubit;
 
   NavCubit({required this.pokemonDetailsCubit}) : super(null);
 
@@ -14,5 +14,6 @@ class NavCubit extends Cubit<int?> {
 
   void popToPokedex() {
     emit(null);
+    pokemonDetailsCubit.clearPokemonDetails();
   }
 }

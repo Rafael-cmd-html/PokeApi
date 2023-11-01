@@ -1,10 +1,10 @@
 class PokemonInfoResponse {
-  final int id;
-  final String name;
-  final String imageUrl;
-  final List<String> types;
-  final int height;
-  final int weight;
+  final int? id;
+  final String? name;
+  final String? imageUrl;
+  final List<String>? types;
+  final int? height;
+  final int? weight;
 
   PokemonInfoResponse(
       {required this.id,
@@ -24,6 +24,6 @@ class PokemonInfoResponse {
         imageUrl: json['sprites']['front_default'],
         types: types,
         height: json['height'],
-        weight: json['wight']);
+        weight: json['weight']);
   }
 }
