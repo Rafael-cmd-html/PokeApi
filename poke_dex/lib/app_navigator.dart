@@ -6,7 +6,6 @@ import 'package:poke_dex/pokemon_details_view.dart';
 
 class AppNavigator extends StatelessWidget {
   final pokedex = PokedexView();
-  int currentPage = 0;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NavCubit, int?>(builder: (context, pokemonId) {

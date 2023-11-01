@@ -34,8 +34,9 @@ class PokedexView extends StatelessWidget {
               Tab(text: 'Gen9'),
             ],
             onTap: (index) {
-              currentPage =
-                  index; // Actualiza la variable currentPage cuando se cambia de pestaña
+              currentPage = index;
+              print('Hola $context');
+              // Actualiza la variable currentPage cuando se cambia de pestaña
             },
           ),
         ),
